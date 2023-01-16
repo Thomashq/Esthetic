@@ -7,7 +7,7 @@ const server = express();
 mongoose.set("strictQuery", false)
 
 mongoose
-.connect('mongodb+srv://thomas_teste:*4sd129A4@cluster0.6ppaf.mongodb.net/?retryWrites=true&w=majority')
+.connect('web.config')
 .then(() => {
     server.listen(3000)
     console.log("Conectado com sucesso")
