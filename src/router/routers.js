@@ -3,14 +3,16 @@ const clientesModelRoutes = require('../model/Clientes.js')
 
 const router = expressRoute.Router()
 
+//rota de get
 router.get('/getCliente', async (req, res) => {
     try{
-        const client = clientesModelRoutes.find()
+        const client = await clientesModelRoutes.find()
         res.status(200).json(client)
     }catch(err){
         res.status(500).json({error: err})
     }
 })
+//entrada de dados
 router.post('/insertNewCliente', async(req, res)=>{
     const {nome, CPF, numero} = req.body
     const client = {
