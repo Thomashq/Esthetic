@@ -1,16 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose')
-const routes = require('./src/router/routers.ts')
+const routes = require('./src/router/routers.js')
 const server = express();
 
-server.use(
-    express.urlencoded({
-        extended: true
-    })
-)
+
+mongoose.set("strictQuery", false)
 
 mongoose
-.connect('mongodb://localhost:27017')
+.connect('sua connection string')
 .then(() => {
     server.listen(3000)
     console.log("Conectado com sucesso")

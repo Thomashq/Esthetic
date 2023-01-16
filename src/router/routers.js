@@ -1,5 +1,5 @@
 const expressRoute = require('express')
-const clientesModelRoutes = require('../model/Clientes.ts')
+const clientesModelRoutes = require('../model/Clientes.js')
 
 const router = expressRoute.Router()
 
@@ -16,7 +16,7 @@ router.post('/insertNewCliente', async(req, res)=>{
     const client = {
         nome,
         CPF,
-        numero
+        numero,
     }
     if(!nome){
         res.status(422)
