@@ -17,12 +17,12 @@ function Home() {
     <>
       <div
         className={
-          transitionPage == 1 ? "img-transition show" : "img-transition hide"
+          transitionPage === 1 ? "img-transition show" : "img-transition hide"
         }
       ></div>
       <section
         className={
-          transitionPage == 0 ? "home-section show" : "home-section hide"
+          transitionPage === 0 ? "home-section show" : "home-section hide"
         }
       >
         <div className="home-title-group">
