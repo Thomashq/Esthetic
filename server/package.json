@@ -2,11 +2,11 @@
   "name": "thailes",
   "version": "1.0.0",
   "description": "",
-  "main": "Main.js",
+  "main": "Api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "electron ./index.ts localhost 3000",
-    "start": "react-scripts start"
+    "dev": "",
+    "start": ""
   },
   "author": "",
   "license": "ISC",
