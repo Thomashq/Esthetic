@@ -12,6 +12,7 @@ router.get('/getCliente', async (req, res) => {
         res.status(500).json({error: err})
     }
 })
+
 router.get('/getClienteByName', async(req, res) => {
     
     const name = req.body.Name
@@ -23,6 +24,19 @@ router.get('/getClienteByName', async(req, res) => {
         res.status(500).json({error:err})
     }
 })
+
+router.get('/getClienteById', async(req, res) => {
+    
+    const id = req.body._id
+    try{
+        const client = await clientesModelRoutes.findOne({_id: id})
+        res.json(client)
+    }
+    catch(err){
+        res.status(500).json({error:err})
+    }
+})
+
 //entrada de dados
 router.post('/insertNewCliente', async(req, res)=>{
     const { Address, Age, Birthdate, Cellphone, Cep, City, District, Mail, Name, Profession, State} = req.body
