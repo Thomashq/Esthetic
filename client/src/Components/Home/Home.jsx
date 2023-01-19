@@ -1,6 +1,7 @@
 import "../../Styles/Home/Home.css";
 import flower from "../../img/flor.png";
 import doubleFlower from "../../img/flor dupla.png";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -30,8 +31,12 @@ function Home() {
           <h2>Biomédica Esteta</h2>
         </div>
         <div className="home-button-group">
-          <button>Adicionar Paciente</button>
-          <button>Lista de Pacientes</button>
+          <button>
+            <Link to="/adicionarpaciente">Adicionar Paciente</Link>
+          </button>
+          <button>
+            <Link to="/listadepacientes">Lista de Pacientes</Link>
+          </button>
         </div>
         <img src={flower} className="flower"></img>
         <img src={doubleFlower} className="double-flower"></img>

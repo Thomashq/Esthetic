@@ -8,7 +8,7 @@ const DB_USER = process.env.DB_USER
 const DB_PASSWORD = process.env.DB_PASSWORD
 const PORT = process.env.PORT
 //iniciar conexão com banco e abertura do servidor.
-mongoose.set("strictQuery", false)
+mongoose.set("strictQuery", false);
 
 mongoose
 .connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.6ppaf.mongodb.net/?retryWrites=true&w=majority`)
