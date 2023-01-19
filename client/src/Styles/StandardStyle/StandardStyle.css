@@ -4,3 +4,16 @@
   --third-color: #c9c9bc;
   --light-gray: #bcbcb4;
 }
+
+@font-face {
+  font-family: "Yaro";
+  src: local("Yaro St Thin"), local("Yaro-St-Thin"),
+    url("../../Fonts/YaroSt-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  color: var(--second-color);
+}

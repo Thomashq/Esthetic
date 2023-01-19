@@ -1,13 +1,5 @@
 @import url("../StandardStyle/StandardStyle.css");
 
-@font-face {
-  font-family: "Yaro";
-  src: local("Yaro St Thin"), local("Yaro-St-Thin"),
-    url("../../Fonts/YaroSt-Thin.ttf") format("truetype");
-  font-weight: 100;
-  font-style: normal;
-}
-
 .home-section {
   width: 100vw;
   min-height: 100vh;
