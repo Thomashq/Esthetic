@@ -99,6 +99,23 @@ a.return-button:hover {
   color: var(--primary-color);
 }
 
+.submit-button-basic {
+  margin: 0rem 1rem;
+  padding: 0.5rem;
+  width: 8rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background: var(--primary-color);
+  color: var(--second-color);
+  border: none;
+  border-radius: 5px;
+  transition: 250ms;
+}
+
+.submit-button-basic:hover {
+  background: #6e6e5d;
+}
+
 @media (max-width: 1000px) {
   .newclient-section .newclient-content .newclient-forms .standardfields {
     grid-template-columns: 1fr 1fr 1fr;
