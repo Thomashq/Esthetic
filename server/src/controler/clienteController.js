@@ -13,12 +13,10 @@ router.get('/getCliente', async (req, res) => {
     }
 })
 router.get('/getClienteByName', async(req, res) => {
+    
+    const name = req.body.Name
     try{
-        let { nome } = req.body
-        let clientname = {
-            nome,
-        }
-        let client = await clientesModelRoutes.findOne({nome:clientname})
+        const client = await clientesModelRoutes.findOne({Name: name})
         res.json(client)
     }
     catch(err){
