@@ -12,15 +12,36 @@ router.get('/getCliente', async (req, res) => {
         res.status(500).json({error: err})
     }
 })
+router.get('/getClienteByName', async(req, res) => {
+    try{
+        let { nome } = req.body
+        let clientname = {
+            nome,
+        }
+        let client = await clientesModelRoutes.findOne({nome:clientname})
+        res.json(client)
+    }
+    catch(err){
+        res.status(500).json({error:err})
+    }
+})
 //entrada de dados
 router.post('/insertNewCliente', async(req, res)=>{
-    const {nome, CPF, numero} = req.body
+    const { Address, Age, Birthdate, Cellphone, Cep, City, District, Mail, Name, Profession, State} = req.body
     const client = {
-        nome,
-        CPF,
-        numero,
+        Address, 
+        Age, 
+        Birthdate, 
+        Cellphone, 
+        Cep, 
+        City, 
+        District, 
+        Mail, 
+        Name, 
+        Profession, 
+        State
     }
-    if(!nome){
+    if(!Name){
         res.status(422)
     }
     try{
