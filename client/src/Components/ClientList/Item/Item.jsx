@@ -10,8 +10,8 @@ function Item({ clientList }) {
     return clientList.length === 0 ? (
       <p className="load-list">Carregando lista de pacientes</p>
     ) : (
-      clientList.map((client) => (
-        <div className="line-item">
+      clientList.map((client, index) => (
+        <div className="line-item" key={index}>
           <div className="name-client">
             <p>{client.Name}</p>
           </div>

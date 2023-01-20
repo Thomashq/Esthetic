@@ -1,10 +1,25 @@
 import { useRef } from "react";
+import axios from "axios";
 import Inputs from "../Inputs/Inputs";
+
+function clearAllFields(formRefCurrent) {
+  formRefCurrent.name.value = "";
+  formRefCurrent.age.value = "";
+  formRefCurrent.address.value = "";
+  formRefCurrent.cep.value = "";
+  formRefCurrent.district.value = "";
+  formRefCurrent.city.value = "";
+  formRefCurrent.state.value = "";
+  formRefCurrent.birthdate.value = "";
+  formRefCurrent.profession.value = "";
+  formRefCurrent.mail.value = "";
+  formRefCurrent.cellphone.value = "";
+}
 
 function StandardFields() {
   const formRef = useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formRefCurrent = formRef.current;
     const objectSend = {
@@ -18,9 +33,15 @@ function StandardFields() {
       Birthdate: formRefCurrent.birthdate.value,
       Profession: formRefCurrent.profession.value,
       Mail: formRefCurrent.mail.value,
-      Matricialstatus: formRefCurrent.matricialstatus.value,
       Cellphone: formRefCurrent.cellphone.value,
     };
+
+    await axios.post(
+      "http://localhost:3080/client/insertNewClient",
+      objectSend
+    );
+
+    clearAllFields(formRefCurrent);
   };
 
   return (

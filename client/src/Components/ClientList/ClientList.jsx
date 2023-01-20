@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "../../Styles/ClientList/ClientList.css";
 import imgEsthetic from "../../img/esthetic.png";
 import LineGrid from "./LineGrid/LineGrid";
@@ -27,6 +28,9 @@ function ClientList() {
     <section className="clientlist-section">
       <div className="clientlist-content">
         <img className="imgforms" src={imgEsthetic} alt="imagem esteta"></img>
+        <Link to="/" className="return-button">
+          <p>Voltar</p>
+        </Link>
         <div className="clientlist-grid">
           <LineGrid clientList={clientList} />
         </div>

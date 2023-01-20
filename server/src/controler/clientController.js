@@ -7,7 +7,7 @@ const router = expressRoute.Router();
 router.get("/getClient", async (req, res) => {
   try {
     const client = await clientModelRoutes.find();
-    res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(200).json(client);
   } catch (err) {
     res.status(500).json({ error: err });
@@ -67,21 +67,21 @@ router.post("/insertNewClient", async (req, res) => {
   }
   try {
     await clientModelRoutes.create(client);
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(201).json({ message: "cliente criado" });
   } catch (err) {
     res.status(500).json({ error: err });
   }
 });
 
-router.delete('/deleteClient', async(req, res)=>{
-    const id = req.body._id
-    try{
-        await clientModelRoutes.deleteOne({_id: id})
-        res.json({message: 'Cliente deletado'})
-    }
-    catch(err){
-        res.status(500).json({error: err})
-    }
-})
+router.delete("/deleteClient", async (req, res) => {
+  const id = req.body._id;
+  try {
+    await clientModelRoutes.deleteOne({ _id: id });
+    res.json({ message: "Cliente deletado" });
+  } catch (err) {
+    res.status(500).json({ error: err });
+  }
+});
 
 module.exports = router;
