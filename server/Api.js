@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose')
-const routes = require('./src/controler/clienteController.js')
+const routes = require('./src/controler/clientController.js')
 const server = express();
 
 const DB_USER = process.env.DB_USER
@@ -20,4 +20,4 @@ mongoose
 .catch((err) => console.log(err))
  
 server.use(express.json())
-server.use('/clientes', routes)
+server.use('/client', routes)
