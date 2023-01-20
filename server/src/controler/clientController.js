@@ -66,5 +66,16 @@ router.post('/insertNewClient', async(req, res)=>{
     }
 })
 
+router.delete('/deleteClient', async(req, res)=>{
+    const id = req.body._id
+    try{
+        await clientModelRoutes.deleteOne({_id: id})
+        res.json({message: 'Cliente deletado'})
+    }
+    catch(err){
+        res.status(500).json({error: err})
+    }
+})
+
 module.exports = router;
  
