@@ -1,23 +1,23 @@
 const expressRoute = require('express')
-const clientesModelRoutes = require('../model/Clientes.js')
+const clientModelRoutes = require('../model/Client.js')
 
 const router = expressRoute.Router()
 
 //rota de get
-router.get('/getCliente', async (req, res) => {
+router.get('/getClient', async (req, res) => {
     try{
-        const client = await clientesModelRoutes.find()
+        const client = await clientModelRoutes.find()
         res.status(200).json(client)
     }catch(err){
         res.status(500).json({error: err})
     }
 })
 
-router.get('/getClienteByName', async(req, res) => {
+router.get('/getClientByName', async(req, res) => {
     
     const name = req.body.Name
     try{
-        const client = await clientesModelRoutes.findOne({Name: name})
+        const client = await clientModelRoutes.findOne({Name: name})
         res.json(client)
     }
     catch(err){
@@ -25,11 +25,11 @@ router.get('/getClienteByName', async(req, res) => {
     }
 })
 
-router.get('/getClienteById', async(req, res) => {
+router.get('/getClientById', async(req, res) => {
     
     const id = req.body._id
     try{
-        const client = await clientesModelRoutes.findOne({_id: id})
+        const client = await clientModelRoutes.findOne({_id: id})
         res.json(client)
     }
     catch(err){
@@ -38,7 +38,7 @@ router.get('/getClienteById', async(req, res) => {
 })
 
 //entrada de dados
-router.post('/insertNewCliente', async(req, res)=>{
+router.post('/insertNewClient', async(req, res)=>{
     const { Address, Age, Birthdate, Cellphone, Cep, City, District, Mail, Name, Profession, State} = req.body
     const client = {
         Address, 
@@ -58,7 +58,7 @@ router.post('/insertNewCliente', async(req, res)=>{
     }
     try{
         
-        await clientesModelRoutes.create(client)
+        await clientModelRoutes.create(client)
         res.status(201).json({message: 'cliente criado'})
     
     }catch(err){
