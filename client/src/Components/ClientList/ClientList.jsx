@@ -1,20 +1,25 @@
-import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import "../../Styles/ClientList/ClientList.css";
-import imgEsthetic from "../../img/esthetic.png";
-import LineGrid from "./LineGrid/LineGrid";
+import { toast } from "react-toastify";
+import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import LineGrid from "./LineGrid/LineGrid";
+import imgEsthetic from "../../img/esthetic.png";
+import "../../Styles/ClientList/ClientList.css";
 
 function ClientList() {
   const [clientList, setClientList] = useState([]);
 
   const getClientList = async () => {
     try {
-      const clientList = await axios.get(
-        "http://localhost:3080/client/getClient"
-      );
-      setClientList(clientList.data);
+      const clientList = await axios
+        .get("http://localhost:3080/client/getClient")
+        .then((res) => {
+          toast.success(res.data.message);
+          return res.data.client;
+        })
+        .catch((res) => toast.error(res.data.message));
+      setClientList(clientList);
     } catch (error) {
       console.log(error);
     }

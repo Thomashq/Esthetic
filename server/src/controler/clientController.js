@@ -8,7 +8,9 @@ router.get("/getClient", async (req, res) => {
   try {
     const client = await clientModelRoutes.find();
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.status(200).json(client);
+    res
+      .status(200)
+      .json({ client, message: "Lista de pacientes carregada com sucesso!" });
   } catch (err) {
     res.status(500).json({ error: err });
   }
@@ -68,7 +70,7 @@ router.post("/insertNewClient", async (req, res) => {
   try {
     await clientModelRoutes.create(client);
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.status(201).json({ message: "cliente criado" });
+    res.status(201).json({ message: "Paciente adicionado com sucesso!" });
   } catch (err) {
     res.status(500).json({ error: err });
   }
@@ -78,7 +80,7 @@ router.delete("/deleteClient", async (req, res) => {
   const id = req.body._id;
   try {
     await clientModelRoutes.deleteOne({ _id: id });
-    res.json({ message: "Cliente deletado" });
+    res.json({ message: "Paciente deletado com sucesso!" });
   } catch (err) {
     res.status(500).json({ error: err });
   }

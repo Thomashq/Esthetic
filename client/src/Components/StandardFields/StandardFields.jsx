@@ -1,6 +1,8 @@
 import { useRef } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 import Inputs from "../Inputs/Inputs";
+import { useState } from "react";
 
 function clearAllFields(formRefCurrent) {
   formRefCurrent.name.value = "";
@@ -16,7 +18,27 @@ function clearAllFields(formRefCurrent) {
   formRefCurrent.cellphone.value = "";
 }
 
+function validateEmptyFields(formRefCurrent) {
+  if (
+    !formRefCurrent.name.value ||
+    !formRefCurrent.age.value ||
+    !formRefCurrent.address.value ||
+    !formRefCurrent.cep.value ||
+    !formRefCurrent.district.value ||
+    !formRefCurrent.city.value ||
+    !formRefCurrent.state.value ||
+    !formRefCurrent.birthdate.value ||
+    !formRefCurrent.profession.value ||
+    !formRefCurrent.mail.value ||
+    !formRefCurrent.cellphone.value
+  ) {
+    toast.warn("É necessário preencher todos os campos!");
+    return false;
+  } else return true;
+}
+
 function StandardFields() {
+  const [fieldsApproved, setFieldsApproved] = useState();
   const formRef = useRef();
 
   const handleSubmit = async (e) => {
@@ -36,12 +58,18 @@ function StandardFields() {
       Cellphone: formRefCurrent.cellphone.value,
     };
 
-    await axios.post(
-      "http://localhost:3080/client/insertNewClient",
-      objectSend
-    );
+    setFieldsApproved(validateEmptyFields(formRefCurrent));
 
-    clearAllFields(formRefCurrent);
+    if (fieldsApproved) {
+      await axios
+        .post("http://localhost:3080/client/insertNewClient", objectSend)
+        .then((res) => {
+          toast.success(res.data.message);
+        })
+        .catch((res) => toast.error(res.data));
+
+      clearAllFields(formRefCurrent);
+    }
   };
 
   return (
