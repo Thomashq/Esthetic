@@ -90,13 +90,6 @@ function StandardFields() {
           isRequired={false}
         />
         <Inputs
-          className="matricialstatus-person"
-          id="matricialstatus"
-          inputName="Estado Civil"
-          type="text"
-          isRequired={false}
-        />
-        <Inputs
           className="mail-person"
           id="mail"
           inputName="E-mail"
