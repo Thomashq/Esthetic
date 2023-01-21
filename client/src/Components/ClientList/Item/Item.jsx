@@ -1,9 +1,7 @@
 import "../../../Styles/ClientList/ClientList.css";
-import {
-  AiTwotoneEdit,
-  AiOutlineFolderView,
-  AiFillDelete,
-} from "react-icons/ai";
+import DeleteAction from "../Actions/DeleteAction/DeleteAction";
+import EditAction from "../Actions/EditAction/EditAction";
+import ViewAction from "../Actions/ViewAction/ViewAction";
 
 function Item({ clientList }) {
   if (clientList) {
@@ -16,9 +14,9 @@ function Item({ clientList }) {
             <p>{client.Name}</p>
           </div>
           <div className="actions-list">
-            <AiTwotoneEdit title="Editar" />
-            <AiFillDelete title="Deletar" />
-            <AiOutlineFolderView title="Visualizar" />
+            <EditAction clientId={client._id} />
+            <ViewAction clientId={client._id} />
+            <DeleteAction clientId={client._id} />
           </div>
         </div>
       ))

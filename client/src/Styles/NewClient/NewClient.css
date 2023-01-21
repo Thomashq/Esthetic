@@ -100,9 +100,10 @@ a.return-button:hover {
 }
 
 .submit-button-basic {
-  margin: 0rem 1rem;
+  margin: 1rem 0rem 0rem 1rem;
   padding: 0.5rem;
   width: 8rem;
+  max-height: 2rem;
   font-size: 1rem;
   cursor: pointer;
   background: var(--primary-color);
@@ -110,6 +111,7 @@ a.return-button:hover {
   border: none;
   border-radius: 5px;
   transition: 250ms;
+  grid-column-start: 1;
 }
 
 .submit-button-basic:hover {

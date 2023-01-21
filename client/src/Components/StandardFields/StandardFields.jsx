@@ -2,7 +2,6 @@ import { useRef } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Inputs from "../Inputs/Inputs";
-import { useState } from "react";
 
 function clearAllFields(formRefCurrent) {
   formRefCurrent.name.value = "";
@@ -18,27 +17,7 @@ function clearAllFields(formRefCurrent) {
   formRefCurrent.cellphone.value = "";
 }
 
-function validateEmptyFields(formRefCurrent) {
-  if (
-    !formRefCurrent.name.value ||
-    !formRefCurrent.age.value ||
-    !formRefCurrent.address.value ||
-    !formRefCurrent.cep.value ||
-    !formRefCurrent.district.value ||
-    !formRefCurrent.city.value ||
-    !formRefCurrent.state.value ||
-    !formRefCurrent.birthdate.value ||
-    !formRefCurrent.profession.value ||
-    !formRefCurrent.mail.value ||
-    !formRefCurrent.cellphone.value
-  ) {
-    toast.warn("É necessário preencher todos os campos!");
-    return false;
-  } else return true;
-}
-
 function StandardFields() {
-  const [fieldsApproved, setFieldsApproved] = useState();
   const formRef = useRef();
 
   const handleSubmit = async (e) => {
@@ -58,23 +37,19 @@ function StandardFields() {
       Cellphone: formRefCurrent.cellphone.value,
     };
 
-    setFieldsApproved(validateEmptyFields(formRefCurrent));
+    await axios
+      .post("http://localhost:3080/client/insertNewClient", objectSend)
+      .then((res) => {
+        toast.success(res.data.message);
+      })
+      .catch((res) => toast.error(res.data));
 
-    if (fieldsApproved) {
-      await axios
-        .post("http://localhost:3080/client/insertNewClient", objectSend)
-        .then((res) => {
-          toast.success(res.data.message);
-        })
-        .catch((res) => toast.error(res.data));
-
-      clearAllFields(formRefCurrent);
-    }
+    clearAllFields(formRefCurrent);
   };
 
   return (
     <>
-      <form className="standardfields" ref={formRef}>
+      <form className="standardfields" ref={formRef} onSubmit={handleSubmit}>
         <Inputs
           className="name-person"
           id="name"
@@ -152,10 +127,8 @@ function StandardFields() {
           type="text"
           isRequired={true}
         />
+        <button className="submit-button-basic">Continuar</button>
       </form>
-      <button className="submit-button-basic" onClick={handleSubmit}>
-        Continuar
-      </button>
     </>
   );
 }
