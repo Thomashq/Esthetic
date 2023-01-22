@@ -3,7 +3,7 @@ import DeleteAction from "../Actions/DeleteAction/DeleteAction";
 import EditAction from "../Actions/EditAction/EditAction";
 import ViewAction from "../Actions/ViewAction/ViewAction";
 
-function Item({ clientList }) {
+function Item({ clientList, setClientList }) {
   if (clientList) {
     return clientList.length === 0 ? (
       <p className="load-list">Carregando lista de pacientes</p>
@@ -16,7 +16,11 @@ function Item({ clientList }) {
           <div className="actions-list">
             <EditAction clientId={client._id} />
             <ViewAction clientId={client._id} />
-            <DeleteAction clientInfo={client} />
+            <DeleteAction
+              clientInfo={client}
+              clientList={clientList}
+              setClientList={setClientList}
+            />
           </div>
         </div>
       ))

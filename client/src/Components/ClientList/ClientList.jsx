@@ -37,7 +37,7 @@ function ClientList() {
           <p>Voltar</p>
         </Link>
         <div className="clientlist-grid">
-          <LineGrid clientList={clientList} />
+          <LineGrid clientList={clientList} setClientList={setClientList} />
         </div>
       </div>
     </section>

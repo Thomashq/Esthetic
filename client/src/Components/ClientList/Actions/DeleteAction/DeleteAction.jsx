@@ -2,13 +2,19 @@ import axios from "axios";
 import { AiFillDelete } from "react-icons/ai";
 import { toast } from "react-toastify";
 
-function DeleteAction({ clientInfo }) {
+function DeleteAction({ clientInfo, clientList, setClientList }) {
   const handleDelete = async (clientInfo) => {
     await axios
       .delete("http://localhost:3080/client/deleteClient", {
         data: clientInfo,
       })
-      .then((res) => toast.success(res.data.message))
+      .then((res) => {
+        const newArrayList = clientList.filter(
+          (client) => client._id !== clientInfo._id
+        );
+        toast.success(res.data.message);
+        setClientList(newArrayList);
+      })
       .catch((res) => toast.error(res.data));
   };
 
