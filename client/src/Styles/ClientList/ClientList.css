@@ -91,6 +91,65 @@
   color: var(--light-gray);
 }
 
+.modal-delete {
+  background: #9c9c846e;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.modal-content {
+  margin-top: 3rem;
+  width: 90%;
+  max-width: 500px;
+  background-color: var(--second-color);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.modal-delete p {
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal-delete p strong {
+  text-transform: uppercase;
+}
+
+.modal-delete button {
+  cursor: pointer;
+  width: 6rem;
+  height: 2rem;
+  border: none;
+  border-radius: 5px;
+  margin-top: 2rem;
+}
+
+.modal-delete .confirm-button {
+  background: rgb(2, 157, 2);
+  color: var(--second-color);
+  margin-right: 1rem;
+}
+
+.modal-delete .confirm-button:hover {
+  background: rgb(3, 182, 3);
+}
+
+.modal-delete .cancel-button {
+  background: rgb(220, 1, 1);
+  color: var(--second-color);
+}
+
+.modal-delete .cancel-button:hover {
+  background: rgb(253, 3, 3);
+}
+
 @media (max-width: 700px) {
   .clientlist-section {
     padding: 1rem 2rem;
