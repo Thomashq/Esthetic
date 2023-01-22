@@ -1,24 +1,19 @@
 import axios from "axios";
-import { useRef } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { toast } from "react-toastify";
 
-function DeleteAction({ clientId }) {
-  const deleteRef = useRef();
-
-  const handleDelete = async () => {
-    const buttonDeleteRef = deleteRef.current;
-    const deleteId = buttonDeleteRef.getAttribute("dataid");
-
+function DeleteAction({ clientInfo }) {
+  const handleDelete = async (clientInfo) => {
     await axios
       .delete("http://localhost:3080/client/deleteClient", {
-        _id: deleteId,
+        data: clientInfo,
       })
-      .then((res) => toast.success(res.data.message));
+      .then((res) => toast.success(res.data.message))
+      .catch((res) => toast.error(res.data));
   };
 
   return (
-    <div dataid={clientId} ref={deleteRef} onClick={handleDelete}>
+    <div values={clientInfo._id} onClick={() => handleDelete(clientInfo)}>
       <AiFillDelete title="Deletar" />
     </div>
   );

@@ -16,7 +16,7 @@ function Item({ clientList }) {
           <div className="actions-list">
             <EditAction clientId={client._id} />
             <ViewAction clientId={client._id} />
-            <DeleteAction clientId={client._id} />
+            <DeleteAction clientInfo={client} />
           </div>
         </div>
       ))

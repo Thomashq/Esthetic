@@ -51,6 +51,7 @@ router.post("/insertNewClient", async (req, res) => {
     Profession,
     State,
   } = req.body;
+
   const client = {
     Address,
     Age,
