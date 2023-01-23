@@ -2,23 +2,11 @@ import { useRef } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Inputs from "../Inputs/Inputs";
-
-function clearAllFields(formRefCurrent) {
-  formRefCurrent.name.value = "";
-  formRefCurrent.age.value = "";
-  formRefCurrent.address.value = "";
-  formRefCurrent.cep.value = "";
-  formRefCurrent.district.value = "";
-  formRefCurrent.city.value = "";
-  formRefCurrent.state.value = "";
-  formRefCurrent.birthdate.value = "";
-  formRefCurrent.profession.value = "";
-  formRefCurrent.mail.value = "";
-  formRefCurrent.cellphone.value = "";
-}
+import { useNavigate } from "react-router-dom";
 
 function StandardFields() {
   const formRef = useRef();
+  const navigateUrl = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,7 +32,7 @@ function StandardFields() {
       })
       .catch((res) => toast.error(res.data));
 
-    clearAllFields(formRefCurrent);
+    navigateUrl("/adicionarpaciente/exames");
   };
 
   return (

@@ -30,6 +30,20 @@ function Inputs({ id, type, inputName, className, isRequired }) {
         </div>
       );
     }
+    case "cep": {
+      return (
+        <div className="input-field">
+          <label htmlFor="cep">CEP</label>
+          <IMaskInput
+            mask="00000-000"
+            type="string"
+            id="cep"
+            className="cep-person"
+            required
+          />
+        </div>
+      );
+    }
     default: {
       return (
         <div className="input-field">

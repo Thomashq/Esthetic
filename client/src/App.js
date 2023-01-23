@@ -8,6 +8,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NewClient from "./Components/NewClient/NewClient";
 import ClientList from "./Components/ClientList/ClientList";
+import ExamsForm from "./Components/ExamsForm/ExamsForm";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/adicionarpaciente" element={<NewClient />}></Route>
         <Route path="/listadepacientes" element={<ClientList />}></Route>
+        <Route path="/adicionarpaciente/exames" element={<ExamsForm />}></Route>
       </Switch>
     </Router>
   );
