@@ -9,6 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 import NewClient from "./Components/NewClient/NewClient";
 import ClientList from "./Components/ClientList/ClientList";
 import ExamsForm from "./Components/ExamsForm/ExamsForm";
+import BodyEvaluation from "./Components/ExamsForm/BodyEvaluation/BodyEvaluation";
+import CapillaryEvaluation from "./Components/ExamsForm/CapillaryEvaluation/CapillaryEvaluation";
+import GeneralEvaluation from "./Components/ExamsForm/GeneralEvaluation/GeneralEvaluation";
 
 function App() {
   return (
@@ -19,6 +22,18 @@ function App() {
         <Route path="/adicionarpaciente" element={<NewClient />}></Route>
         <Route path="/listadepacientes" element={<ClientList />}></Route>
         <Route path="/adicionarpaciente/exames" element={<ExamsForm />}></Route>
+        <Route
+          path="/adicionarpaciente/exames/avaliacaocorporal"
+          element={<BodyEvaluation />}
+        ></Route>
+        <Route
+          path="/adicionarpaciente/exames/avaliacaocapilar"
+          element={<CapillaryEvaluation />}
+        ></Route>
+        <Route
+          path="/adicionarpaciente/exames/avaliacaogeral"
+          element={<GeneralEvaluation />}
+        ></Route>
       </Switch>
     </Router>
   );
