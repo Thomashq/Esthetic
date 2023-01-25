@@ -4,7 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const routes = require("./src/controler/clientController.js");
 const additionalInfoRoutes = require("./src/controler/additionalInfoController.js");
-const capillaryRoutes = require("./src/controler/capillaryController.js");
+const capillaryRoutes = require("./src/controler/capillaryProcedureController.js");
 const server = express();
 
 const DB_USER = process.env.DB_USER;

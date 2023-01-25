@@ -12,6 +12,7 @@ import ExamsForm from "./Components/ExamsForm/ExamsForm";
 import BodyEvaluation from "./Components/ExamsForm/BodyEvaluation/BodyEvaluation";
 import CapillaryEvaluation from "./Components/ExamsForm/CapillaryEvaluation/CapillaryEvaluation";
 import GeneralEvaluation from "./Components/ExamsForm/GeneralEvaluation/GeneralEvaluation";
+import AdditionalInfo from "./Components/AdditionalInfo/AdditionalInfo";
 
 function App() {
   return (
@@ -21,17 +22,24 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/adicionarpaciente" element={<NewClient />}></Route>
         <Route path="/listadepacientes" element={<ClientList />}></Route>
-        <Route path="/adicionarpaciente/exames" element={<ExamsForm />}></Route>
         <Route
-          path="/adicionarpaciente/exames/avaliacaocorporal"
+          path="/adicionarpaciente/informacoesadicionais"
+          element={<AdditionalInfo />}
+        ></Route>
+        <Route
+          path="/adicionarpaciente/informacoesadicionais/exames"
+          element={<ExamsForm />}
+        ></Route>
+        <Route
+          path="/adicionarpaciente/informacoesadicionais/exames/avaliacaocorporal"
           element={<BodyEvaluation />}
         ></Route>
         <Route
-          path="/adicionarpaciente/exames/avaliacaocapilar"
+          path="/adicionarpaciente/informacoesadicionais/exames/avaliacaocapilar"
           element={<CapillaryEvaluation />}
         ></Route>
         <Route
-          path="/adicionarpaciente/exames/avaliacaogeral"
+          path="/adicionarpaciente/informacoesadicionais/exames/avaliacaogeral"
           element={<GeneralEvaluation />}
         ></Route>
       </Switch>

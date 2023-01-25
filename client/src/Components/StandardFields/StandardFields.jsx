@@ -32,7 +32,7 @@ function StandardFields() {
       })
       .catch((res) => toast.error(res.data));
 
-    navigateUrl("/adicionarpaciente/exames");
+    navigateUrl("/adicionarpaciente/informacoesadicionais");
   };
 
   return (
