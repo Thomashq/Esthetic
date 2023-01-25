@@ -21,13 +21,41 @@ router.get ("/getAdditionalInfo", async (req, res) => {
 
 router.post("/postAdditionalInfo", async (req, res) => {
     try{
-        const { ClientId, Allergies, ChronicDiseases, Medications } = req.body;
+        const { ClientId, 
+            Allergies,
+            AllergiesDescription,
+            ChronicDisease,
+            ChronicDiseaseDescription,
+            ChronicDiseaseStatus,
+            Disease,
+            DiseaseDescription,
+            DiseasesStatus,
+            Medications,
+            MedicationsDescription,
+            MedicalProcedures,
+            MedicalProceduresDescription,
+            MedicalProceduresDate,
+            Diet,
+             
+        } = req.body;
         const additionalInfo = {
             ClientId,
             Allergies,
-            ChronicDiseases,
+            AllergiesDescription,
+            ChronicDisease,
+            ChronicDiseaseDescription,
+            ChronicDiseaseStatus,
+            Disease,
+            DiseaseDescription,
+            DiseasesStatus,
             Medications,
+            MedicationsDescription,
+            MedicalProcedures,
+            MedicalProceduresDescription,
+            MedicalProceduresDate,
+            Diet,
         };
+        
         const newAdditionalInfo = await additionalInfoModelRoutes.create(additionalInfo);
         res.setHeader("Access-Control-Allow-Origin", "*");
         res
