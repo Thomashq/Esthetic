@@ -1,7 +1,5 @@
 const expressRoute = require("express");
-const clientModelRoutes = require("../model/Client.js");
 const additionalInfoModelRoutes = require("../model/ClientAdditionalInfo.js");
-const clientController = require("./clientController.js");
 
 const router = expressRoute.Router();
 
