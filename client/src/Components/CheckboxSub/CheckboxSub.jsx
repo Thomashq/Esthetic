@@ -1,4 +1,4 @@
-function Checkbox({
+function CheckboxSub({
   id,
   classNameTrue,
   classNameFalse,
@@ -37,8 +37,35 @@ function Checkbox({
         placeholder="Qual?"
         noValidate
       />
+      <div className={`${opened}`}>
+        <p>O problema está?</p>
+        <label>Aumentando</label>
+        <input
+          style={{ marginLeft: 5, marginRight: 10 }}
+          value="Aumentando"
+          type="radio"
+          name={`${id}status`}
+          id={`input${id}status`}
+        ></input>
+        <label>Diminuindo</label>
+        <input
+          style={{ marginLeft: 5, marginRight: 10 }}
+          type="radio"
+          value="Diminuindo"
+          name={`${id}status`}
+          id={`input${id}status`}
+        ></input>
+        <label>Estável</label>
+        <input
+          style={{ marginLeft: 5, marginRight: 10 }}
+          value="Estável"
+          type="radio"
+          name={`${id}status`}
+          id={`input${id}status`}
+        ></input>
+      </div>
     </div>
   );
 }
 
-export default Checkbox;
+export default CheckboxSub;

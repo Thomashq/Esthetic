@@ -1,4 +1,4 @@
-function Checkbox({
+function CheckboxOnly({
   id,
   classNameTrue,
   classNameFalse,
@@ -30,15 +30,8 @@ function Checkbox({
         defaultChecked
         onClick={() => handleChangeCheckbox(id)}
       />
-      <input
-        className={`additionalinfo-input-text ${opened}`}
-        type="text"
-        id={`input${id}`}
-        placeholder="Qual?"
-        noValidate
-      />
     </div>
   );
 }
 
-export default Checkbox;
+export default CheckboxOnly;

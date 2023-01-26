@@ -1,4 +1,6 @@
-function Checkbox({
+import "../../Styles/Additionalinfo/Additionalinfo.css";
+
+function CheckboxDate({
   id,
   classNameTrue,
   classNameFalse,
@@ -37,8 +39,14 @@ function Checkbox({
         placeholder="Qual?"
         noValidate
       />
+      <input
+        className={`additionalinfo-input-text ${opened}`}
+        type="date"
+        id={`input${id}date`}
+        placeholder="Data"
+      />
     </div>
   );
 }
 
-export default Checkbox;
+export default CheckboxDate;

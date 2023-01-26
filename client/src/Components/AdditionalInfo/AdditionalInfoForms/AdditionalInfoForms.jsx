@@ -3,6 +3,9 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "../../../Styles/Additionalinfo/Additionalinfo.css";
 import Checkbox from "../../Checkbox/Checkbox";
+import CheckboxDate from "../../CheckboxDate/CheckboxDate";
+import CheckboxSub from "../../CheckboxSub/CheckboxSub";
+import CheckboxOnly from "../../CheckboxOnly/CheckboxOnly";
 
 function AdditionalInfoForms() {
   const [allergieTrue, setAllergieTrue] = useState("hide-input");
@@ -30,7 +33,7 @@ function AdditionalInfoForms() {
       MedicationsDescription: formRefSubmit.inputmedications.value,
       MedicalProcedures: formRefSubmit.medicalprocedures.value,
       MedicalProceduresDescription: formRefSubmit.inputmedicalprocedures.value,
-      MedicalProceduresDate: formRefSubmit.inputdata.value,
+      MedicalProceduresDate: formRefSubmit.inputmedicalproceduresdate.value,
       Diet: formRefSubmit.diet.value,
     };
 
@@ -83,7 +86,7 @@ function AdditionalInfoForms() {
           ? setMedicalproceduresTrue("show-input")
           : setMedicalproceduresTrue("hide-input");
 
-        formRefClear.inputdata.value = "";
+        formRefClear.inputmedicalproceduresdate.value = "";
         formRefClear.inputmedicalprocedures.value = "";
         break;
       }
@@ -104,7 +107,7 @@ function AdditionalInfoForms() {
         opened={allergieTrue}
         handleChangeCheckbox={handleChangeCheckbox}
       />
-      <Checkbox
+      <CheckboxSub
         text="O paciente possui alguma doença crônica?"
         id="chronicDiseases"
         classNameTrue="chronicDiseases-true"
@@ -120,7 +123,7 @@ function AdditionalInfoForms() {
         opened={medicationsTrue}
         handleChangeCheckbox={handleChangeCheckbox}
       />
-      <Checkbox
+      <CheckboxSub
         text="O paciente possui alguma doença no momento?"
         id="disease"
         classNameTrue="disease-true"
@@ -128,7 +131,7 @@ function AdditionalInfoForms() {
         opened={diseaseTrue}
         handleChangeCheckbox={handleChangeCheckbox}
       />
-      <Checkbox
+      <CheckboxDate
         text="O paciente fez algum procedimento médico recentemente?"
         id="medicalprocedures"
         classNameTrue="medicalprocedures-true"
@@ -136,7 +139,7 @@ function AdditionalInfoForms() {
         opened={medicalproceduresTrue}
         handleChangeCheckbox={handleChangeCheckbox}
       />
-      <Checkbox
+      <CheckboxOnly
         text="O paciente está fazendo dieta atualmente?"
         id="diet"
         classNameTrue="diet-true"
