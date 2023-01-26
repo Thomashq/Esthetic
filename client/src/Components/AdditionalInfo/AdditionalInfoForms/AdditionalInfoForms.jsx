@@ -22,16 +22,16 @@ function AdditionalInfoForms() {
       AllergiesDescription: formRefSubmit.inputallergies.value,
       ChronicDisease: formRefSubmit.chronicDiseases.value,
       ChronicDiseaseDescription: formRefSubmit.inputchronicDiseases.value,
-      ChronicDiseaseStatus: "",
+      ChronicDiseaseStatus: formRefSubmit.inputchronicDiseasesstatus.value,
       Disease: formRefSubmit.disease.value,
       DiseaseDescription: formRefSubmit.inputdisease.value,
-      DiseasesStatus: "",
+      DiseasesStatus: formRefSubmit.inputdiseasestatus.value,
       Medications: formRefSubmit.medications.value,
       MedicationsDescription: formRefSubmit.inputmedications.value,
       MedicalProcedures: formRefSubmit.medicalprocedures.value,
       MedicalProceduresDescription: formRefSubmit.inputmedicalprocedures.value,
       MedicalProceduresDate: formRefSubmit.inputdata.value,
-      Diet: false,
+      Diet: formRefSubmit.diet.value,
     };
 
     axios
@@ -83,6 +83,7 @@ function AdditionalInfoForms() {
           ? setMedicalproceduresTrue("show-input")
           : setMedicalproceduresTrue("hide-input");
 
+        formRefClear.inputdata.value = "";
         formRefClear.inputmedicalprocedures.value = "";
         break;
       }
@@ -133,6 +134,13 @@ function AdditionalInfoForms() {
         classNameTrue="medicalprocedures-true"
         classNameFalse="medicalprocedures-false"
         opened={medicalproceduresTrue}
+        handleChangeCheckbox={handleChangeCheckbox}
+      />
+      <Checkbox
+        text="O paciente está fazendo dieta atualmente?"
+        id="diet"
+        classNameTrue="diet-true"
+        classNameFalse="diet-false"
         handleChangeCheckbox={handleChangeCheckbox}
       />
       <button className="submit-button-basic">Continuar</button>

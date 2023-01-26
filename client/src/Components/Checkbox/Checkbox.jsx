@@ -30,20 +30,55 @@ function Checkbox({
         defaultChecked
         onClick={() => handleChangeCheckbox(id)}
       />
-      <input
-        className={`additionalinfo-input-text ${opened}`}
-        type="text"
-        id={`input${id}`}
-        placeholder="Qual?"
-        required
-      />
-      {id === "medicalprocedures" ? (
+      {id !== "diet" ? (
         <input
           className={`additionalinfo-input-text ${opened}`}
           type="text"
+          id={`input${id}`}
+          placeholder="Qual?"
+          noValidate
+        />
+      ) : (
+        ""
+      )}
+      {id === "medicalprocedures" ? (
+        <input
+          className={`additionalinfo-input-text ${opened}`}
+          type="date"
           id={`inputdata`}
           placeholder="Data"
         />
+      ) : (
+        ""
+      )}
+      {id === "disease" || id === "chronicDiseases" ? (
+        <div className={`${opened}`}>
+          <p>O problema está?</p>
+          <label>Aumentando</label>
+          <input
+            style={{ marginLeft: 5, marginRight: 10 }}
+            value="Aumentando"
+            type="radio"
+            name={`${id}status`}
+            id={`input${id}status`}
+          ></input>
+          <label>Diminuindo</label>
+          <input
+            style={{ marginLeft: 5, marginRight: 10 }}
+            type="radio"
+            value="Diminuindo"
+            name={`${id}status`}
+            id={`input${id}status`}
+          ></input>
+          <label>Estável</label>
+          <input
+            style={{ marginLeft: 5, marginRight: 10 }}
+            value="Estável"
+            type="radio"
+            name={`${id}status`}
+            id={`input${id}status`}
+          ></input>
+        </div>
       ) : (
         ""
       )}
