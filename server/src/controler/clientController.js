@@ -81,6 +81,7 @@ router.delete("/deleteClient", async (req, res) => {
   const id = req.body._id;
   try {
     await clientModelRoutes.deleteOne({ _id: id });
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.json({ message: "Paciente deletado com sucesso!" });
   } catch (err) {
     res.status(500).json({ error: err });

@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const routes = require("./src/controler/clientController.js");
 const additionalInfoRoutes = require("./src/controler/additionalInfoController.js");
 const capillaryRoutes = require("./src/controler/capillaryProcedureController.js");
+const facialRoutes = require("./src/controler/facialProcedureController.js");
 const server = express();
 
 const DB_USER = process.env.DB_USER;
@@ -29,3 +30,4 @@ server.use(express.json());
 server.use("/client", routes);
 server.use("/additionalInfo", additionalInfoRoutes);
 server.use("/capillary", capillaryRoutes);
+server.use("/facial", facialRoutes);
