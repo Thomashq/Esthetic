@@ -77,6 +77,16 @@ router.post("/insertNewClient", async (req, res) => {
   }
 });
 
+router.get("/getLastClient", async (req, res) => {
+  try {
+    const client = await clientModelRoutes.find().sort({ _id: -1 }).limit(1);
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.json(client);
+  } catch (err) {
+    res.status(500).json({ error: err });
+  }
+});
+
 router.delete("/deleteClient", async (req, res) => {
   const id = req.body._id;
   try {
