@@ -1,6 +1,7 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import "../../../Styles/Additionalinfo/Additionalinfo.css";
 import Checkbox from "../../Checkbox/Checkbox";
 import CheckboxDate from "../../CheckboxDate/CheckboxDate";
@@ -8,6 +9,7 @@ import CheckboxSub from "../../CheckboxSub/CheckboxSub";
 import CheckboxOnly from "../../CheckboxOnly/CheckboxOnly";
 
 function AdditionalInfoForms() {
+  const [lastClient, setLastClient] = useState([]);
   const [allergieTrue, setAllergieTrue] = useState("hide-input");
   const [chronicDiseasesTrue, setChronicDiseasesTrue] = useState("hide-input");
   const [medicationsTrue, setMedicationsTrue] = useState("hide-input");
@@ -15,12 +17,33 @@ function AdditionalInfoForms() {
   const [medicalproceduresTrue, setMedicalproceduresTrue] =
     useState("hide-input");
   const formRef = useRef();
+  const navigateUrl = useNavigate();
+
+  const getLastClient = async () => {
+    try {
+      const lastClient = await axios
+        .get("http://localhost:3080/client/getLastClient")
+        .then((res) => {
+          return res.data;
+        })
+        .catch((res) => {
+          return res;
+        });
+      setLastClient(lastClient);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getLastClient();
+  }, [setLastClient]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formRefSubmit = formRef.current;
     const objectSend = {
-      ClientId: "63d0898229135211d8963407",
+      ClientId: lastClient[0]._id,
       Allergies: formRefSubmit.allergies.value,
       AllergiesDescription: formRefSubmit.inputallergies.value,
       ChronicDisease: formRefSubmit.chronicDiseases.value,
@@ -44,6 +67,8 @@ function AdditionalInfoForms() {
       )
       .then((res) => toast.success(res.data.message))
       .catch((res) => toast.error(res.data));
+
+    navigateUrl("/adicionarpaciente/informacoesadicionais/exames");
   };
 
   const handleChangeCheckbox = (additionalinfo) => {
