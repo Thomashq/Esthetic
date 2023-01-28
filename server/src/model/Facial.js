@@ -8,5 +8,13 @@ const Facial = mongooseModel.model('Facial',{
     Ostios: String,
     Acne: String,
     FitzPatrickSkinPhototype: String,
+    SkinInjureType: String,
+    Scars: String,
+    DarkCircles: Boolean,
+    DarkCirclesType: String,
+    Flaccidity: String,
+    TreatmentObjectives: String,
+    Treatment: String,
+
 })
 module.exports = Facial

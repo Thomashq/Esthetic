@@ -10,6 +10,14 @@ routes.post('/postFacial', async (req, res) => {
         Ostios,
         Acne,
         FitzPatrickSkinPhototype,
+        SkinInjureType,
+        Scars,
+        DarkCircles,
+        DarkCirclesType,
+        Flaccidity,
+        TreatmentObjectives,
+        Treatment,
+
     } = req.body;
     const facial = {
         ClientId,
@@ -19,6 +27,14 @@ routes.post('/postFacial', async (req, res) => {
         Ostios,
         Acne,
         FitzPatrickSkinPhototype,
+        SkinInjureType,
+        Scars,
+        DarkCircles,
+        DarkCirclesType,
+        Flaccidity,
+        TreatmentObjectives,
+        Treatment
+
     }
     try{
         const newfacial = await facialModelRoutes.create(facial);
