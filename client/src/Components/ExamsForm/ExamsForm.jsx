@@ -10,13 +10,16 @@ function ExamsForm() {
         <div className="exams-form">
           <h1>Escolher Exame</h1>
           <div className="exams-select">
-            <Link to="/adicionarpaciente/exames/avaliacaocorporal">
+            <Link to="/adicionarpaciente/informacoesadicionais/exames/avaliacaocorporal">
               <button>Avaliação Corporal</button>
             </Link>
-            <Link to="/adicionarpaciente/exames/avaliacaocapilar">
+            <Link to="/adicionarpaciente/informacoesadicionais/exames/avaliacaocapilar">
               <button>Avaliação Capilar</button>
             </Link>
-            <Link to="/adicionarpaciente/exames/avaliacaogeral">
+            <Link to="/adicionarpaciente/informacoesadicionais/exames/avaliacaofacial">
+              <button>Avaliação Facial</button>
+            </Link>
+            <Link to="/adicionarpaciente/informacoesadicionais/exames/avaliacaogeral">
               <button>Avaliação Geral</button>
             </Link>
           </div>

@@ -13,6 +13,7 @@ import BodyEvaluation from "./Components/ExamsForm/BodyEvaluation/BodyEvaluation
 import CapillaryEvaluation from "./Components/ExamsForm/CapillaryEvaluation/CapillaryEvaluation";
 import GeneralEvaluation from "./Components/ExamsForm/GeneralEvaluation/GeneralEvaluation";
 import AdditionalInfo from "./Components/AdditionalInfo/AdditionalInfo";
+import FacialEvaluation from "./Components/ExamsForm/FacialEvaluation/FacialEvaluation";
 
 function App() {
   return (
@@ -41,6 +42,10 @@ function App() {
         <Route
           path="/adicionarpaciente/informacoesadicionais/exames/avaliacaogeral"
           element={<GeneralEvaluation />}
+        ></Route>
+        <Route
+          path="/adicionarpaciente/informacoesadicionais/exames/avaliacaofacial"
+          element={<FacialEvaluation />}
         ></Route>
       </Switch>
     </Router>
