@@ -14,6 +14,7 @@ import CapillaryEvaluation from "./Components/ExamsForm/CapillaryEvaluation/Capi
 import GeneralEvaluation from "./Components/ExamsForm/GeneralEvaluation/GeneralEvaluation";
 import AdditionalInfo from "./Components/AdditionalInfo/AdditionalInfo";
 import FacialEvaluation from "./Components/ExamsForm/FacialEvaluation/FacialEvaluation";
+import ClientInfo from "./Components/ClientInfo/ClientInfo";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/adicionarpaciente" element={<NewClient />}></Route>
         <Route path="/listadepacientes" element={<ClientList />}></Route>
+        <Route path="/listadepacientes/:id" element={<ClientInfo />}></Route>
         <Route
           path="/adicionarpaciente/informacoesadicionais"
           element={<AdditionalInfo />}
