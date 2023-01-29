@@ -98,4 +98,24 @@ router.post("/postCapillary", async (req, res) => {
         res.status(500).json({ error: err });
     }
 })
-module.exports = router
+router.get("/getCapillaryByClientId", async (req, res) => {
+    const { ClientId } = req.body.ClientId;
+    try{
+        const capillary = await capillaryModelRoutes.find({ClientId: ClientId});
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.status(200).json({ capillary, message: "Exame capilar carregado com sucesso!" });
+    }catch{
+        res.status(500).json({ error: err });
+    }
+})
+router.delete('/deleteCapillary', async (req, res) => {
+    const { _id } = req.body._id;
+    try{
+        const capillary = await capillaryModelRoutes.findByIdAndDelete(_id);
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.status(200).json({ capillary, message: "Exame capilar deletado com sucesso!" });
+    }catch{
+        res.status(500).json({ error: err });
+    }
+});
+module.exports = router;

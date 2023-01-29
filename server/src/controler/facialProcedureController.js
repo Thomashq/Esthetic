@@ -72,7 +72,7 @@ routes.delete("/deleteFacial", async (req, res) => {
 routes.get("/getFacialProcedureByClientId", async (req, res) => {
   const ClientId = req.body.ClientId;
   try {
-    const facial = await facialModelRoutes.findOne({ ClientId });
+    const facial = await facialModelRoutes.find({ ClientId });
     res.setHeader("Access-Control-Allow-Origin", "*");
     res
       .status(200)
