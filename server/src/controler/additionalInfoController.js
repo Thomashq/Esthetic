@@ -1,5 +1,6 @@
 const expressRoute = require("express");
 const additionalInfoModelRoutes = require("../model/ClientAdditionalInfo.js");
+const { route } = require("./facialProcedureController.js");
 
 const router = expressRoute.Router();
 
@@ -60,6 +61,22 @@ router.post("/postAdditionalInfo", async (req, res) => {
     res
       .status(200)
       .json({ message: "Informações adicionais cadastradas com sucesso!" });
+  } catch (err) {
+    res.status(500).json({ error: err });
+  }
+});
+
+router.get("/getAdditionalInfoByClientId", async (req, res) => {
+  const ClientId = req.body.ClientId;
+  try {
+    const additionalInfo = await additionalInfoModelRoutes.findOne({
+      ClientId: ClientId,
+    });
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.status(200).json({
+      additionalInfo,
+      message: "Informações adicionais carregadas com sucesso!",
+    });
   } catch (err) {
     res.status(500).json({ error: err });
   }
