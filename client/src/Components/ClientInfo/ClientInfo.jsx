@@ -5,6 +5,7 @@ import imgEsthetic from "../../img/esthetic.png";
 import "../../Styles/ClientInfo/ClientInfo.css";
 import ClientInfoData from "./ClientInfoData/ClientInfoData";
 import ClientAdditionalInfoData from "./ClientAdditionalInfoData/ClientAdditionalInfoData";
+import ClientInfoExams from "./ClientInfoExams/ClientInfoExams";
 
 function ClientInfo() {
   const { clientId } = useParams();
@@ -50,8 +51,6 @@ function ClientInfo() {
     getAdditionalInfoByClientId();
   }, [setClient]);
 
-  console.log(additionalClientInfo);
-
   return (
     <section className="clientinfo-section">
       <div className="clientinfo-content">
@@ -66,6 +65,7 @@ function ClientInfo() {
           <ClientAdditionalInfoData
             additionalClientInfo={additionalClientInfo}
           />
+          <ClientInfoExams clientId={clientId} />
         </div>
       </div>
     </section>
