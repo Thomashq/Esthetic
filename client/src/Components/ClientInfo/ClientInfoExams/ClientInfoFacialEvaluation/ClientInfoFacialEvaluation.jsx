@@ -4,7 +4,7 @@ function ClientInfoFacialEvaluation({ facialExam }) {
       <p className="load-list">Carregando dados do paciente</p>
     ) : (
       <>
-        <h3>Dados do Exame</h3>
+        <h3>Exame Facial</h3>
         <div className="clientinfofields">
           <div className="input-field" style={{ display: "none" }}></div>
           <div className="input-field">

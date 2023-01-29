@@ -638,7 +638,7 @@ function CapillaryEvaluationForm() {
       />
       <CheckboxOnly
         id="familybaldness"
-        text="Alguém da família tem algum tipo de calvície indicada ao lado?"
+        text="Alguém da família tem algum tipo de calvície?"
         handleChangeCheckbox={handleChangeCheckbox}
       />
       <div>
