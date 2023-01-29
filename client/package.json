@@ -10,7 +10,6 @@
     "axios": "^1.2.3",
     "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
-    "electron": "^22.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
@@ -29,9 +28,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron:serve": "concurrently -k \"cross-env BROWSER=none npm start\" \"npm run electron:start \"",
-    "electron:build": "",
-    "electron:start": "electron ."
+    "start-electron": "export ELECTRON_START_URL=http://localhost:3000 && electron .",
+    "package": "electron-builder build --mac --win -c.extraMetadata.main=build/main.js --publish never",
+    "publish": "electron-builder build --mac --win --publish always"
   },
   "eslintConfig": {
     "extends": [
@@ -50,5 +49,37 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "electron": "^22.1.0",
+    "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "mac": {
+      "publish": {
+        "provider": "github",
+        "owner": "Thomashq",
+        "repo": "Esthetic",
+        "token": "[token]"
+      }
+    },
+    "win": {
+      "publish": {
+        "provider": "github",
+        "owner": "Thomashq",
+        "repo": "Esthetic",
+        "token": "[token]"
+      }
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "public/**/*",
+      "src/**/*"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "Thomashq"
+    }
   }
 }
