@@ -56,7 +56,7 @@ function FacialEvaluationForm() {
       .then((res) => toast.success(res.data.message))
       .catch((res) => toast.error(res.data));
 
-    navigateUrl("/listadepacientes");
+    navigateUrl(`/listadepacientes/${lastClient[0]._id}`);
   };
 
   const handleChangeCheckbox = (facialInfo) => {
