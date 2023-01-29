@@ -21,7 +21,7 @@
     "wait-on": "^7.0.1",
     "web-vitals": "^2.1.4"
   },
-  "main": "public/main.js",
+  "main": "public/electron.js",
   "homepage": "./",
   "scripts": {
     "start": "react-scripts start",
@@ -60,7 +60,7 @@
         "provider": "github",
         "owner": "Thomashq",
         "repo": "Esthetic",
-        "token": "[token]"
+        "token": "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"
       }
     },
     "win": {
@@ -68,7 +68,7 @@
         "provider": "github",
         "owner": "Thomashq",
         "repo": "Esthetic",
-        "token": "[token]"
+        "token": "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"
       }
     },
     "files": [
