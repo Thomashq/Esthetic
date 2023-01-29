@@ -4,10 +4,12 @@ import axios from "axios";
 import imgEsthetic from "../../img/esthetic.png";
 import "../../Styles/ClientInfo/ClientInfo.css";
 import ClientInfoData from "./ClientInfoData/ClientInfoData";
+import ClientAdditionalInfoData from "./ClientAdditionalInfoData/ClientAdditionalInfoData";
 
 function ClientInfo() {
   const { clientId } = useParams();
   const [client, setClient] = useState([]);
+  const [additionalClientInfo, setAdditionalClientInfo] = useState([]);
 
   const getClientList = async () => {
     try {
@@ -25,9 +27,30 @@ function ClientInfo() {
     }
   };
 
+  const getAdditionalInfoByClientId = async () => {
+    try {
+      const additionalInfo = await axios
+        .get("http://localhost:3080/additionalInfo/getAdditionalInfo")
+        .then((res) => {
+          return res.data.additionalInfo;
+        })
+        .catch((res) => {
+          return res;
+        });
+      setAdditionalClientInfo(
+        additionalInfo.filter((data) => data.ClientId === clientId)
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getClientList();
+    getAdditionalInfoByClientId();
   }, [setClient]);
+
+  console.log(additionalClientInfo);
 
   return (
     <section className="clientinfo-section">
@@ -39,6 +62,10 @@ function ClientInfo() {
         <div className="clientinfo-data">
           <h1>Dados do Paciente</h1>
           <ClientInfoData client={client} />
+          <h3>Dados Adicionais</h3>
+          <ClientAdditionalInfoData
+            additionalClientInfo={additionalClientInfo}
+          />
         </div>
       </div>
     </section>

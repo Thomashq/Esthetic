@@ -44,31 +44,6 @@ routes.post("/postFacial", async (req, res) => {
     res.status(500).json({ error: err });
   }
 });
-<<<<<<< Updated upstream
-=======
-routes.get('/getFacial', async (req, res) => {
-    try{
-        const facial = await facialModelRoutes.find();
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.status(200).json({ facial, message: "Lista de exames faciais carregada com sucesso!" });
-    }
-    catch(err){
-        res.status(500).json({ error: err });
-    }
-})
-routes.get('/getFacialProcedureByClientId', async (req, res) => {
-    const ClientId = req.body.ClientId;
-    try{
-        const facial = await facialModelRoutes.findOne({ ClientId });
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.status(200).json({ facial, message: "Lista de exames faciais carregada com sucesso!" });
-    }
-    catch(err){
-        res.status(500).json({ error: err });
-    }
-})
-
->>>>>>> Stashed changes
 
 routes.get("/getFacial", async (req, res) => {
   try {
@@ -93,4 +68,21 @@ routes.delete("/deleteFacial", async (req, res) => {
     res.status(500).json({ error: err });
   }
 });
+
+routes.get("/getFacialProcedureByClientId", async (req, res) => {
+  const ClientId = req.body.ClientId;
+  try {
+    const facial = await facialModelRoutes.findOne({ ClientId });
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res
+      .status(200)
+      .json({
+        facial,
+        message: "Lista de exames faciais carregada com sucesso!",
+      });
+  } catch (err) {
+    res.status(500).json({ error: err });
+  }
+});
+
 module.exports = routes;

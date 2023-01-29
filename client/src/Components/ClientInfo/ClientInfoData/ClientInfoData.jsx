@@ -1,4 +1,4 @@
-function ClientInfoData({ client }) {
+function ClientInfoData({ client, additionalClientInfo }) {
   if (client) {
     return client.length === 0 ? (
       <p className="load-list">Carregando dados do paciente</p>
