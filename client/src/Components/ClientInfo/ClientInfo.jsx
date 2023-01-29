@@ -61,7 +61,6 @@ function ClientInfo() {
         <div className="clientinfo-data">
           <h1>Dados do Paciente</h1>
           <ClientInfoData client={client} />
-          <h3>Dados Adicionais</h3>
           <ClientAdditionalInfoData
             additionalClientInfo={additionalClientInfo}
           />

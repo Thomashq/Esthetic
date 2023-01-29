@@ -27,7 +27,6 @@ function ClientInfoExams({ clientId }) {
 
   return (
     <>
-      <h3>Dados do Exame</h3>
       <ClientInfoFacialEvaluation facialExam={facialExam} />
     </>
   );
