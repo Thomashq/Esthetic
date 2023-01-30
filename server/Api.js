@@ -22,7 +22,7 @@ mongoose
   .then(() => {
     server.listen(PORT);
     console.log("Conectado com sucesso");
-    console.log(`Servidor está rodando na porta ${3000}`);
+    console.log(`Servidor está rodando na porta ${PORT}`);
   })
   .catch((err) => console.log(err));
 
@@ -32,4 +32,4 @@ server.use("/client", routes);
 server.use("/additionalInfo", additionalInfoRoutes);
 server.use("/capillary", capillaryRoutes);
 server.use("/facial", facialRoutes);
-server.use("/body", bodyRoutes);
+server.use("/bodyProcedure", bodyRoutes);

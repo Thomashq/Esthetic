@@ -1,6 +1,5 @@
 const routes = require("express").Router();
 const bodyModelRoutes = require("../model/Body");
-const router = require("./clientController");
 
 routes.post("/postBody", async (req, res) => {
     const {
@@ -83,7 +82,7 @@ routes.post("/postBody", async (req, res) => {
         return res.status(400).send({ error: err });
     }
 });
-router.get("/getBodyByClientId", async (req, res) => {
+routes.get("/getBodyByClientId", async (req, res) => {
     const id = req.body.ClientId;
     try{
         const body = await bodyModelRoutes.find({ ClientId: id });
@@ -93,7 +92,7 @@ router.get("/getBodyByClientId", async (req, res) => {
         return res.status(400).send({ error: err });
     }
 });
-router.get("/getBody", async (req, res) => {
+routes.get("/getBodyProcedures", async (req, res) => {
     try {
         const body = await bodyModelRoutes.find();
         res.setHeader("Access-Control-Allow-Origin", "*");
@@ -106,7 +105,7 @@ router.get("/getBody", async (req, res) => {
     }
 });
 
-router.delete("/deleteBody", async (req, res) => {
+routes.delete("/deleteBody", async (req, res) => {
     const {id} = req.body._id;
     try{
         await bodyModelRoutes.deleteOne({ _id: id });
