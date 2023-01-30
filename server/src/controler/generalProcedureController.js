@@ -1,6 +1,6 @@
 const routes = require('express').Router();
 const generalModelRoutes = require('../model/General');
-const router = require('./additionalInfoController.js');
+
 
 
 routes.post('/insertNewGeneralProcedure', async (req, res) => {
@@ -151,7 +151,7 @@ routes.post('/insertNewGeneralProcedure', async (req, res) => {
         res.status(500).json({ error: err });
     }
 });
-router.get('/getGeneralProcedure', async (req, res) => {
+routes.get('/getGeneralProcedure', async (req, res) => {
     try{
         const general = await generalModelRoutes.find();
         res.setHeader('Access-Control-Allow-Origin', '*');
@@ -163,7 +163,7 @@ router.get('/getGeneralProcedure', async (req, res) => {
         res.status(500).json({ error: err });
     }
 });
-router.get('/getGeneralProcedureByClientId', async (req, res) => {
+routes.get('/getGeneralProcedureByClientId', async (req, res) => {
     const { ClientId } = req.body.ClientId;
     try{
         const general = await generalModelRoutes.find({ClientId});
@@ -176,7 +176,7 @@ router.get('/getGeneralProcedureByClientId', async (req, res) => {
         res.status(500).json({ error: err });
     }
 });
-router.put('/updateGeneralProcedure', async (req, res) => {
+routes.put('/updateGeneralProcedure', async (req, res) => {
     const {
         _id,
         ClientId,
@@ -328,7 +328,7 @@ router.put('/updateGeneralProcedure', async (req, res) => {
     }
 });
 
-router.delete('/deleteGeneralProcedure', async (req, res) => {
+routes.delete('/deleteGeneralProcedure', async (req, res) => {
     const { id } = req.body._id;
     try{
         const general = await generalModelRoutes.findByIdAndDelete(id);
@@ -341,3 +341,4 @@ router.delete('/deleteGeneralProcedure', async (req, res) => {
         res.status(500).json({ error: err });
     }
 });
+module.exports = routes;

@@ -115,44 +115,8 @@ routes.post("/postBody", async (req, res) => {
     return res.status(400).send({ error: err });
   }
 });
-<<<<<<< HEAD
+
 routes.get("/getBodyByClientId", async (req, res) => {
-    const id = req.body.ClientId;
-    try{
-        const body = await bodyModelRoutes.find({ ClientId: id });
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.json(body);
-    } catch (err) {
-        return res.status(400).send({ error: err });
-    }
-});
-routes.get("/getBodyProcedures", async (req, res) => {
-    try {
-        const body = await bodyModelRoutes.find();
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        return res.status(200).json({
-            body,
-            message: "Lista de avaliações corporais carregada com sucesso!",
-        });
-    } catch (err) {
-        return res.status(400).send({ error: err });
-    }
-});
-
-routes.delete("/deleteBody", async (req, res) => {
-    const {id} = req.body._id;
-    try{
-        await bodyModelRoutes.deleteOne({ _id: id });
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res
-        .status(200)
-        .json({ message: "Avaliação corporal deletada com sucesso" });
-    } catch (err) {
-        return res.status(400).send({ error: err });
-    }
-=======
-
-router.get("/getBodyByClientId", async (req, res) => {
   const id = req.body.ClientId;
   try {
     const body = await bodyModelRoutes.find({ ClientId: id });
@@ -163,7 +127,7 @@ router.get("/getBodyByClientId", async (req, res) => {
   }
 });
 
-router.get("/getBody", async (req, res) => {
+routes.get("/getBody", async (req, res) => {
   try {
     const body = await bodyModelRoutes.find();
     console.log(2);
@@ -177,7 +141,7 @@ router.get("/getBody", async (req, res) => {
   }
 });
 
-router.delete("/deleteBody", async (req, res) => {
+routes.delete("/deleteBody", async (req, res) => {
   const { id } = req.body._id;
   try {
     await bodyModelRoutes.deleteOne({ _id: id });
@@ -188,7 +152,6 @@ router.delete("/deleteBody", async (req, res) => {
   } catch (err) {
     return res.status(400).send({ error: err });
   }
->>>>>>> fab117d5dc1568aeef487b3397010f461b3bb0d6
 });
 
 module.exports = routes;

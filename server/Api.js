@@ -7,6 +7,7 @@ const additionalInfoRoutes = require("./src/controler/additionalInfoController.j
 const capillaryRoutes = require("./src/controler/capillaryProcedureController.js");
 const facialRoutes = require("./src/controler/facialProcedureController.js");
 const bodyRoutes = require("./src/controler/bodyProcedureController.js");
+const generalRoutes = require("./src/controler/generalProcedureController.js");
 const server = express();
 
 const DB_USER = process.env.DB_USER;
@@ -33,3 +34,4 @@ server.use("/additionalInfo", additionalInfoRoutes);
 server.use("/capillary", capillaryRoutes);
 server.use("/facial", facialRoutes);
 server.use("/bodyProcedure", bodyRoutes);
+server.use('/general', generalRoutes);
