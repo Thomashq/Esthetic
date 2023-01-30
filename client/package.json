@@ -28,9 +28,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-electron": "export ELECTRON_START_URL=http://localhost:3000 && electron .",
-    "package": "electron-builder build --mac --win -c.extraMetadata.main=build/main.js --publish never",
-    "publish": "electron-builder build --mac --win --publish always"
+    "electron:start": "concurrently -k \"cross-env BROWSER=none npm start\" \"wait-on http://127.0.0.1:3000 && electron .\"",
+    "electron:package:mac": "npm build && electron-builder -m -c.extraMetadata.main=build/electron.js",
+    "electron:package:win": "npm build && electron-builder -w -c.extraMetadata.main=build/electron.js",
+    "electron:package:linux": "npm build && electron-builder -l -c.extraMetadata.main=build/electron.js"
   },
   "eslintConfig": {
     "extends": [
@@ -55,12 +56,14 @@
     "electron-builder": "^23.6.0"
   },
   "build": {
+    "generateUpdatesFilesForAllChannels": true,
+    "copyright": "Thailes Pinheiro Estetaz",
     "mac": {
       "publish": {
         "provider": "github",
         "owner": "Thomashq",
         "repo": "Esthetic",
-        "token": "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"
+        "token": "token"
       }
     },
     "win": {
@@ -68,9 +71,11 @@
         "provider": "github",
         "owner": "Thomashq",
         "repo": "Esthetic",
-        "token": "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"
+        "token": "token"
       }
     },
+    "appId": "com.electron.esthetic",
+    "productName": "Esthetic",
     "files": [
       "build/**/*",
       "node_modules/**/*",
