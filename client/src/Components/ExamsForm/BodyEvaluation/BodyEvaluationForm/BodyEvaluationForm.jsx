@@ -34,7 +34,6 @@ function BodyEvaluationForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(lastClient);
     const formRefSubmit = formRef.current;
     const objectSend = {
       ClientId: lastClient[0]._id,
@@ -92,9 +91,11 @@ function BodyEvaluationForm() {
     };
 
     axios
-      .post("http://localhost:3080/body/postBody", objectSend)
+      .post("http://localhost:3080/bodyProcedure/postBody", objectSend)
       .then((res) => toast.success(res.data.message))
       .catch((res) => toast.error(res.data));
+
+    navigateUrl(`/listadepacientes/${lastClient[0]._id}`);
   };
 
   const handleChangeOpen = (inputId) => {

@@ -2,10 +2,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ClientInfoFacialEvaluation from "./ClientInfoFacialEvaluation/ClientInfoFacialEvaluation";
 import ClientInfoCapillaryEvaluation from "./ClientInfoCapillaryEvaluation/ClientInfoCapillaryEvaluation";
+import ClientInfoGeneralEvaluation from "./ClientInfoGeneralEvaluation/ClientInfoGeneralEvaluation";
+import ClientInfoBodyEvaluation from "./ClientInfoBodyEvaluation/ClientInfoBodyEvaluation";
 
 function ClientInfoExams({ clientId }) {
   const [facialExam, setFacialExam] = useState([]);
   const [capillarExam, setCapillarExam] = useState([]);
+  const [generalExam, setGeneralExam] = useState([]);
+  const [bodyExam, setBodyExam] = useState([]);
 
   const getFacilExamList = async () => {
     try {
@@ -41,6 +45,38 @@ function ClientInfoExams({ clientId }) {
     }
   };
 
+  const getGeneralExamList = async () => {
+    try {
+      const generalExam = await axios
+        .get("http://localhost:3080/general/getGeneralProcedure")
+        .then((res) => {
+          return res.data.general;
+        })
+        .catch((res) => {
+          return res;
+        });
+      setGeneralExam(generalExam.filter((data) => data.ClientId === clientId));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getBodylExamList = async () => {
+    try {
+      const bodyExam = await axios
+        .get("http://localhost:3080/bodyProcedure/getBody")
+        .then((res) => {
+          return res.data.body;
+        })
+        .catch((res) => {
+          return res;
+        });
+      setBodyExam(bodyExam.filter((data) => data.ClientId === clientId));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getFacilExamList();
   }, [setFacialExam]);
@@ -49,9 +85,22 @@ function ClientInfoExams({ clientId }) {
     getCapillaryExamList();
   }, [setCapillarExam]);
 
-  if (facialExam.length !== 0)
-    return <ClientInfoFacialEvaluation facialExam={facialExam} />;
-  else return <ClientInfoCapillaryEvaluation capillarExam={capillarExam} />;
+  useEffect(() => {
+    getGeneralExamList();
+  }, [setGeneralExam]);
+
+  useEffect(() => {
+    getBodylExamList();
+  }, [setBodyExam]);
+
+  return (
+    <>
+      <ClientInfoFacialEvaluation facialExam={facialExam} />
+      <ClientInfoCapillaryEvaluation capillarExam={capillarExam} />
+      <ClientInfoGeneralEvaluation generalExam={generalExam} />
+      <ClientInfoBodyEvaluation bodyExam={bodyExam} />
+    </>
+  );
 }
 
 export default ClientInfoExams;

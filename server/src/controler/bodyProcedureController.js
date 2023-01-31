@@ -130,7 +130,6 @@ routes.get("/getBodyByClientId", async (req, res) => {
 routes.get("/getBody", async (req, res) => {
   try {
     const body = await bodyModelRoutes.find();
-    console.log(2);
     res.setHeader("Access-Control-Allow-Origin", "*");
     return res.status(200).json({
       body,

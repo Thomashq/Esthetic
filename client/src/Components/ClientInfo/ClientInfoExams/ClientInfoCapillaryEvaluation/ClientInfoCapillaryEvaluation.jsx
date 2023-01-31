@@ -1,7 +1,7 @@
 function ClientInfoCapillaryEvaluation({ capillarExam }) {
   if (capillarExam) {
     return capillarExam.length === 0 ? (
-      <p className="load-list">Carregando dados do paciente</p>
+      <p className="load-list" style={{ display: "none" }}></p>
     ) : (
       <>
         <h3>Exame Capilar</h3>

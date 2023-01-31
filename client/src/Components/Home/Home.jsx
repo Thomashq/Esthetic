@@ -27,7 +27,7 @@ function Home() {
         }
       >
         <div className="home-title-group">
-          <h1>Thaíles Pinheiro</h1>
+          <h1>Thailes Pinheiro</h1>
           <h2>Biomédica Esteta</h2>
         </div>
         <div className="home-button-group">

@@ -1,7 +1,7 @@
 function ClientInfoFacialEvaluation({ facialExam }) {
   if (facialExam) {
     return facialExam.length === 0 ? (
-      <p className="load-list">Carregando dados do paciente</p>
+      <p className="load-list" style={{ display: "none" }}></p>
     ) : (
       <>
         <h3>Exame Facial</h3>
