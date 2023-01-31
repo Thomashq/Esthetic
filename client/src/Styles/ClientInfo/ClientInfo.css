@@ -91,6 +91,11 @@ h3 {
   font-size: 0.8rem;
 }
 
+h4 {
+  text-transform: uppercase;
+  padding-top: 1rem;
+}
+
 @media (max-width: 800px) {
   .clientinfo-section {
     padding: 1rem 2rem;
