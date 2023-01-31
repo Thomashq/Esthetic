@@ -21,7 +21,7 @@ function Item({ clientList, setClientList }) {
             <p>{client.Name}</p>
           </div>
           <div className="actions-list">
-            <EditAction clientId={client._id} />
+            {/* <EditAction clientId={client._id} /> */}
             <ViewAction
               clientId={client._id}
               handleClickNavigate={handleClickNavigate}
