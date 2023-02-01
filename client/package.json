@@ -20,7 +20,8 @@
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.1",
     "wait-on": "^7.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "dotenv": "^16.0.3"
   },
   "main": "public/electron.js",
   "homepage": "./",
@@ -49,4 +50,3 @@
     ]
   }
 }
-

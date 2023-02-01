@@ -15,43 +15,56 @@ import GeneralEvaluation from "./Components/ExamsForm/GeneralEvaluation/GeneralE
 import AdditionalInfo from "./Components/AdditionalInfo/AdditionalInfo";
 import FacialEvaluation from "./Components/ExamsForm/FacialEvaluation/FacialEvaluation";
 import ClientInfo from "./Components/ClientInfo/ClientInfo";
+import Login from "./Components/Login/Login";
 
 function App() {
+  const getLocalStorage = localStorage.getItem("@user");
+  let logged = "";
+
+  if (getLocalStorage) {
+    logged = getLocalStorage.includes("estetathailes123") ? true : false;
+  } else logged = false;
+
   return (
     <Router>
       <ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_RIGHT} />
       <Switch>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/adicionarpaciente" element={<NewClient />}></Route>
-        <Route path="/listadepacientes" element={<ClientList />}></Route>
-        <Route
-          path="/listadepacientes/:clientId"
-          element={<ClientInfo />}
-        ></Route>
-        <Route
-          path="/adicionarpaciente/informacoesadicionais"
-          element={<AdditionalInfo />}
-        ></Route>
-        <Route
-          path="/adicionarpaciente/informacoesadicionais/exames"
-          element={<ExamsForm />}
-        ></Route>
-        <Route
-          path="/adicionarpaciente/informacoesadicionais/exames/avaliacaocorporal"
-          element={<BodyEvaluation />}
-        ></Route>
-        <Route
-          path="/adicionarpaciente/informacoesadicionais/exames/avaliacaocapilar"
-          element={<CapillaryEvaluation />}
-        ></Route>
-        <Route
-          path="/adicionarpaciente/informacoesadicionais/exames/avaliacaogeral"
-          element={<GeneralEvaluation />}
-        ></Route>
-        <Route
-          path="/adicionarpaciente/informacoesadicionais/exames/avaliacaofacial"
-          element={<FacialEvaluation />}
-        ></Route>
+        {!logged && <Route path="/" element={<Login />} />}
+        {logged && (
+          <>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/adicionarpaciente" element={<NewClient />}></Route>
+            <Route path="/listadepacientes" element={<ClientList />}></Route>
+            <Route
+              path="/listadepacientes/:clientId"
+              element={<ClientInfo />}
+            ></Route>
+            <Route
+              path="/adicionarpaciente/informacoesadicionais"
+              element={<AdditionalInfo />}
+            ></Route>
+            <Route
+              path="/adicionarpaciente/informacoesadicionais/exames"
+              element={<ExamsForm />}
+            ></Route>
+            <Route
+              path="/adicionarpaciente/informacoesadicionais/exames/avaliacaocorporal"
+              element={<BodyEvaluation />}
+            ></Route>
+            <Route
+              path="/adicionarpaciente/informacoesadicionais/exames/avaliacaocapilar"
+              element={<CapillaryEvaluation />}
+            ></Route>
+            <Route
+              path="/adicionarpaciente/informacoesadicionais/exames/avaliacaogeral"
+              element={<GeneralEvaluation />}
+            ></Route>
+            <Route
+              path="/adicionarpaciente/informacoesadicionais/exames/avaliacaofacial"
+              element={<FacialEvaluation />}
+            ></Route>
+          </>
+        )}
       </Switch>
     </Router>
   );
