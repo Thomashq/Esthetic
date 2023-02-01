@@ -28,12 +28,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "electron:start": "concurrently -k \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
-    "electron:package:mac": "npm run build && electron-builder -m -c.extraMetadata.main=build/electron.js",
-    "electron:package:win": "npm run build && electron-builder -w -c.extraMetadata.main=build/electron.js",
-    "electron:package:linux": "npm run build && electron-builder -l -c.extraMetadata.main=build/electron.js",
-    "electron:build": "npm run build && electron-builder -mwl -c.extraMetadata.main=build/electron.js"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -52,24 +47,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "electron": "^22.1.0",
-    "electron-builder": "^23.6.0"
-  },
-  "build": {
-    "generateUpdatesFilesForAllChannels": true,
-    "copyright": "Thailes Pinheiro Esteta",
-    "appId": "com.electron.esthetic",
-    "productName": "Esthetic",
-    "files": [
-      "build/**/*",
-      "node_modules/**/*",
-      "package.json",
-      "dist/**/*"
-    ],
-    "directories": {
-      "buildResources": "assets"
-    }
   }
 }
+
