@@ -15,7 +15,7 @@ function ClientInfo() {
   const getClientList = async () => {
     try {
       const clientList = await axios
-        .get("http://localhost:3080/client/getClient")
+        .get("https://backend-esthetic-api.onrender.com/client/getClient")
         .then((res) => {
           return res.data.client;
         })
@@ -31,7 +31,7 @@ function ClientInfo() {
   const getAdditionalInfoByClientId = async () => {
     try {
       const additionalInfo = await axios
-        .get("http://localhost:3080/additionalInfo/getAdditionalInfo")
+        .get("https://backend-esthetic-api.onrender.com/additionalInfo/getAdditionalInfo")
         .then((res) => {
           return res.data.additionalInfo;
         })
