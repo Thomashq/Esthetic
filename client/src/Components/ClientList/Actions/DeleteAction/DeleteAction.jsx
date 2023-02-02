@@ -19,7 +19,7 @@ function DeleteAction({ clientInfo, clientList, setClientList }) {
 
   const handleDelete = async (clientInfo) => {
     await axios
-      .delete("http://localhost:3080/client/deleteClient", {
+      .delete("https://backend-esthetic-api.onrender.com/client/deleteClient", {
         data: clientInfo,
       })
       .then((res) => {

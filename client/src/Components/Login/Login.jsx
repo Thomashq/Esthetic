@@ -11,7 +11,7 @@ function Login() {
 
   const getUserLogin = () => {
     axios
-      .get("http://localhost:3080/login/getlogin")
+      .get("https://backend-esthetic-api.onrender.com/login/getlogin")
       .then((res) => {
         setLogin(res.data.login);
       })

@@ -14,7 +14,7 @@ function FacialEvaluationForm() {
   const getLastClient = async () => {
     try {
       const lastClient = await axios
-        .get("http://localhost:3080/client/getLastClient")
+        .get("https://backend-esthetic-api.onrender.com/client/getLastClient")
         .then((res) => {
           return res.data;
         })
@@ -52,7 +52,10 @@ function FacialEvaluationForm() {
     };
 
     axios
-      .post("http://localhost:3080/facial/postFacial", objectSend)
+      .post(
+        "https://backend-esthetic-api.onrender.com/facial/postFacial",
+        objectSend
+      )
       .then((res) => toast.success(res.data.message))
       .catch((res) => toast.error(res.data));
 

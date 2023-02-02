@@ -26,7 +26,10 @@ function StandardFields() {
     };
 
     await axios
-      .post("http://localhost:3080/client/insertNewClient", objectSend)
+      .post(
+        "https://backend-esthetic-api.onrender.com/client/insertNewClient",
+        objectSend
+      )
       .then((res) => {
         toast.success(res.data.message);
       })

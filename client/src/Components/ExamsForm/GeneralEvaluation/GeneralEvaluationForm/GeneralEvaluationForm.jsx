@@ -52,7 +52,7 @@ function GeneralEvaluationForm() {
   const getLastClient = async () => {
     try {
       const lastClient = await axios
-        .get("http://localhost:3080/client/getLastClient")
+        .get("https://backend-esthetic-api.onrender.com/client/getLastClient")
         .then((res) => {
           return res.data;
         })
@@ -156,7 +156,7 @@ function GeneralEvaluationForm() {
 
     axios
       .post(
-        "http://localhost:3080/general/insertNewGeneralProcedure",
+        "https://backend-esthetic-api.onrender.com/general/insertNewGeneralProcedure",
         objectSend
       )
       .then((res) => toast.success(res.data.message))

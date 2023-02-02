@@ -24,7 +24,7 @@
     "dotenv": "^16.0.3"
   },
   "main": "public/electron.js",
-  "homepage": "./",
+  "homepage": "http://ThailesEsteta.com/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

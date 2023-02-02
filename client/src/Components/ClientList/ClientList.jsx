@@ -13,7 +13,7 @@ function ClientList() {
   const getClientList = async () => {
     try {
       const clientList = await axios
-        .get("http://localhost:3080/client/getClient")
+        .get("https://backend-esthetic-api.onrender.com/client/getClient")
         .then((res) => {
           toast.success(res.data.message);
           return res.data.client;
