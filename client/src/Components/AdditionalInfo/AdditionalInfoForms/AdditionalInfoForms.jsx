@@ -22,7 +22,7 @@ function AdditionalInfoForms() {
   const getLastClient = async () => {
     try {
       const lastClient = await axios
-        .get("https://backend-esthetic-api.onrender.com/client/getLastClient")
+        .get("http://localhost:3080/client/getLastClient")
         .then((res) => {
           return res.data;
         })
@@ -62,7 +62,7 @@ function AdditionalInfoForms() {
 
     axios
       .post(
-        "https://backend-esthetic-api.onrender.com/additionalInfo/postAdditionalInfo",
+        "http://localhost:3080/additionalInfo/postAdditionalInfo",
         objectSend
       )
       .then((res) => toast.success(res.data.message))

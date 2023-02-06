@@ -27,7 +27,7 @@ function StandardFields() {
 
     await axios
       .post(
-        "https://backend-esthetic-api.onrender.com/client/insertNewClient",
+        "http://localhost:3080/client/insertNewClient",
         objectSend
       )
       .then((res) => {

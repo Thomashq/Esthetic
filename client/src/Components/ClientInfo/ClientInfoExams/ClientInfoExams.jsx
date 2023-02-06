@@ -14,7 +14,7 @@ function ClientInfoExams({ clientId }) {
   const getFacilExamList = async () => {
     try {
       const facialExam = await axios
-        .get("https://backend-esthetic-api.onrender.com/facial/getFacial")
+          .get("http://localhost:3080/facial/getFacial")
         .then((res) => {
           return res.data.facial;
         })
@@ -30,7 +30,7 @@ function ClientInfoExams({ clientId }) {
   const getCapillaryExamList = async () => {
     try {
       const capillarExam = await axios
-        .get("https://backend-esthetic-api.onrender.com/capillary/getCapillary")
+        .get("http://localhost:3080/capillary/getCapillary")
         .then((res) => {
           return res.data.capillary;
         })
@@ -49,7 +49,7 @@ function ClientInfoExams({ clientId }) {
     try {
       const generalExam = await axios
         .get(
-          "https://backend-esthetic-api.onrender.com/general/getGeneralProcedure"
+          "http://localhost:3080/general/getGeneralProcedure"
         )
         .then((res) => {
           return res.data.general;
@@ -66,7 +66,7 @@ function ClientInfoExams({ clientId }) {
   const getBodylExamList = async () => {
     try {
       const bodyExam = await axios
-        .get("https://backend-esthetic-api.onrender.com/bodyProcedure/getBody")
+        .get("http://localhost:3080/bodyProcedure/getBody")
         .then((res) => {
           return res.data.body;
         })

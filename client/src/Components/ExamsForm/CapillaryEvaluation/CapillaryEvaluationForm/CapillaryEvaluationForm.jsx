@@ -26,7 +26,7 @@ function CapillaryEvaluationForm() {
   const getLastClient = async () => {
     try {
       const lastClient = await axios
-        .get("https://backend-esthetic-api.onrender.com/client/getLastClient")
+        .get("http://localhost:3080/client/getLastClient")
         .then((res) => {
           return res.data;
         })
@@ -91,7 +91,7 @@ function CapillaryEvaluationForm() {
 
     axios
       .post(
-        "https://backend-esthetic-api.onrender.com/capillary/postCapillary",
+        "http://localhost:3080/capillary/postCapillary",
         objectSend
       )
       .then((res) => toast.success(res.data.message))

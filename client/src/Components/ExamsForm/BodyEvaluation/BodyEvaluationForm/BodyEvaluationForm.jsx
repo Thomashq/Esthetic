@@ -15,7 +15,7 @@ function BodyEvaluationForm() {
   const getLastClient = async () => {
     try {
       const lastClient = await axios
-        .get("https://backend-esthetic-api.onrender.com/client/getLastClient")
+        .get("http://localhost:3080/client/getLastClient")
         .then((res) => {
           return res.data;
         })
@@ -91,7 +91,7 @@ function BodyEvaluationForm() {
     };
 
     axios
-      .post("https://backend-esthetic-api.onrender.com/bodyProcedure/postBody", objectSend)
+      .post("http://localhost:3080/bodyProcedure/postBody", objectSend)
       .then((res) => toast.success(res.data.message))
       .catch((res) => toast.error(res.data));
 

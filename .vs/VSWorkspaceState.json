@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\client",
+    "\\client\\src",
+    "\\client\\src\\Components",
+    "\\client\\src\\Components\\ClientInfo",
+    "\\client\\src\\Components\\ClientInfo\\ClientInfoExams",
+    "\\client\\src\\Components\\ClientList",
+    "\\client\\src\\Components\\ClientList\\Actions",
+    "\\client\\src\\Components\\ClientList\\Actions\\DeleteAction",
+    "\\client\\src\\Components\\ClientList\\Item",
+    "\\client\\src\\Components\\ClientList\\LineGrid"
+  ],
+  "SelectedNode": "\\client\\src\\Components\\ClientList\\Actions\\DeleteAction\\DeleteAction.jsx",
+  "PreviewInSolutionExplorer": false
+}
